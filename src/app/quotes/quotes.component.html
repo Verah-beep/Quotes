@@ -1,1 +1,37 @@
+<link href="https://fonts.googleapis.com/css?family=Srisakdi&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Bowlby+One+SC|Srisakdi&display=swap" rel="stylesheet">
 
+<body>
+  <div class="container-fluid">
+
+    <div class="head">
+        <!-- <h1>Motivational Quotes</h1> -->
+    </div>
+    
+
+
+    <div class="row" style="padding-bottom: 10px;">
+
+      <div class="col md-6">
+
+        <div *ngFor='let quote of quotes ;let i = index' style="margin: 20px;">
+          <div class="card" id="top-card">
+            <h3 appHighlight class="card-title"> {{quote.name}} </h3>
+              <app-quote-detail *ngIf='quote.showDescription' [quote]='quote' (isComplete)='deleteQuote($event,i)' class="card-text">
+              </app-quote-detail>
+
+
+              <button (click)='toggleDetails(i)' class="bg-info btn text-white">View More</button>
+          </div>
+          
+        </div>
+      </div><br><br>
+      <div class="col-md-6">
+        <div class="card">
+            <app-quote-form (addQuote)="addNewQuote($event)"></app-quote-form>
+         </div>
+      </div>
+    </div>
+    
+  </div>
+</body>
