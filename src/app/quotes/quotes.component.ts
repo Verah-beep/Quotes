@@ -9,9 +9,9 @@ export class QuotesComponent implements OnInit {
   
 
   quotes: Quote[] = [
-    new Quote(1, 'No one cares about your struggles and failures but everyone carse about your success and achievements', 'Lovine Oduor', new Date(2020,6,15)),
-    new Quote(2, 'Difficulties in your life do not come to destroy you but to help you realize your potential and future', 'Rihannah', new Date(2020,6,15)),
-    new Quote(3, 'Success is a battle located in the brain that only the relentless can survive', 'Lovine Oduor', new Date(2020,6,15))
+    new Quote(1, 'Success and Technology....', 'The technology you use impresses no one.The experience you create with it is everything.', 'Vera Auma', new Date(2020,8,18)),
+    new Quote(2, 'Motivational Quotes', 'Success is a lousy teacher.It seduces smart people into thinking they cant lose.', 'Nicole Atieno', new Date(2020,8,18)),
+    new Quote(3, 'Funny Science and Technology', 'If you cant explain it simply,you dont understand it well enough', new Date(2020,8,18))
   ];
 
   toggleDetails(index) {
