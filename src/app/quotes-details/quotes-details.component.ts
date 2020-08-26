@@ -1,15 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { TestBed, async } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { AppComponent } from './app.component';
 
-@Component({
-  selector: 'app-quotes-details',
-  templateUrl: './quotes-details.component.html',
-  styleUrls: ['./quotes-details.component.css']
-})
-export class QuotesDetailsComponent implements OnInit {
+describe('AppComponent', () => {
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      imports: [
+        RouterTestingModule
+      ],
+      declarations: [
+        AppComponent
+      ],
+    }).compileComponents();
+  }));
 
-  constructor() { }
+  it('should create the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
+  });
 
-  ngOnInit(): void {
-  }
+  it(`should have as title 'Quote'`, () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app.title).toEqual('Quote');
+  });
 
-}
+  it('should render title', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement;
+    expect(compiled.querySelector('.content span').textContent).toContain('Quote app is running!');
+  });
+});
