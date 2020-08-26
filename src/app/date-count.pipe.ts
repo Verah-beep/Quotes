@@ -10,7 +10,7 @@ export class DateCountPipe implements PipeTransform {
     transform(value: any, args?: any): any {
         if (value) {
             const seconds = Math.floor((+new Date() - +new Date(value)) / 1000);
-            if (seconds < 29) // less than 30 seconds ago will show as 'minute ago'
+            if (seconds < 29) 
                 return ' minute ago';
             const intervals = {
                 'year': 31536000,
