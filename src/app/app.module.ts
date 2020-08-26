@@ -7,7 +7,6 @@ import { QuotesDetailsComponent } from './quotes-details/quotes-details.componen
 import { QuotesComponent } from './quotes/quotes.component';
 import { QuotesFormComponent } from './quotes-form/quotes-form.component';
 import { CountInputComponent } from './count-input/count-input.component';
-import { Quote } from './quote.ts/quote.ts.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +15,7 @@ import { Quote } from './quote.ts/quote.ts.component';
     QuotesComponent,
     QuotesFormComponent,
     CountInputComponent,
-    Quote.TsComponent
+  
   ],
   imports: [
     BrowserModule,
