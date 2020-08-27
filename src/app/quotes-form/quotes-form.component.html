@@ -10,36 +10,31 @@
         <form (ngSubmit)="submitQuote()" #quoteForm="ngForm" name="">
             <div class="form-group">
 
-                <label for="quote"> Quote</label>
+                <label for="quote">Quote</label>
                 <textarea class="form-control" id="quote" [(ngModel)]="newQuote.name" name="quote" #quote="ngModel"
                     required></textarea>
 
-                <div                          *ngIf="quote.invalid|| quote.pristine" class="alert alert-danger">
-                    <div *ngIf="quote.errors.required">Quote Required
-                    </div>
-
-                </div>
+                <div [hidden]="quote.invalid|| quote.pristine" class="alert alert-danger">Quote is required</div>
 
             </div>
             <div class="form-group">
 
-                <label for="author">Author's Name</label>
+                <label for="author">Author</label>
                 <textarea class="form-control" id="author" [(ngModel)]="newQuote.author" name="author" #author="ngModel"
                     required></textarea>
 
-                <div *ngIf="author.invalid || author.pristine" class="alert alert-danger">
-                    <div *ngIf="title.errors.required">Author's name Required</div>
+                <div [hidden]="author.invalid || author.pristine" class="alert alert-danger">
+                    <p>Author is required</p>
                 </div>
 
             </div>
             <div class="form-group">
 
-                <label for="description">Submitter's Name</label>
+                <label for="description">Submiter</label>
                 <textarea class="form-control" id="description" [(ngModel)]="newQuote.description" name="description"
                     #description="ngModel" required></textarea>
-                <div *ngIf="description.invalid || description.pristine" class="alert alert-danger">
-                    <div *ngIf="title.errors.required">Submitter's name is Required
-                    </div>
+                <div [hidden]="description.invalid || description.pristine" class="alert alert-danger">
+                    <p>Submiter is required</p>
                 </div>
             </div>
 
