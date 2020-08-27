@@ -1,35 +1,35 @@
-import { TestBed, async } from '@angular/core/testing';
-import { RouterTestingModule } from '@angular/router/testing';
-import { AppComponent } from './app.component';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Quote } from "../quote"
 
-describe('AppComponent', () => {
-  beforeEach(async(() => {
-    TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [
-        AppComponent
-      ],
-    }).compileComponents();
-  }));
+@Component({
+  selector: 'app-quote-detail',
+  templateUrl: './quote-detail.component.html',
+  styleUrls: ['./quote-detail.component.css']
+})
+export class QuoteDetailComponent implements OnInit {
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
-  });
+  @Input() quote :Quote;
+  @Output() isComplete = new EventEmitter<boolean>();
+  quoteDelete(complete:boolean){
+    this.isComplete.emit(complete);
+  }
+  @Output () voteIncrease = new EventEmitter<boolean>();
+  @Output () voteDecrease = new EventEmitter<boolean> ();
+   ifIncrease(one:boolean){
+     this.voteIncrease.emit(one);
 
-  it(`should have as title 'Quote'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('Quote');
-  });
+   }
+   ifDecrease(two:boolean) {
+     this.voteDecrease.emit(two);
+   }
+quoteDan(purge:boolean){
+  this.isComplete.emit(purge);
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('Quote app is running!');
-  });
-});
+}
+
+  constructor() { }
+
+  ngOnInit() {
+  }
+
+}
